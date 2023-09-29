@@ -1,0 +1,22 @@
+{
+    "name": "@sandersgutierrez/scaffolding-nodejs",
+    "version": "0.0.0",
+    "description": "",
+    "private": "true",
+    "type": "module",
+    "scripts": {
+        "postinstall": "husky install",
+        "start": "node app.js",
+        "format": "prettier --write ."
+    },
+    "keywords": [],
+    "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandersgutierrez.github.io/)",
+    "license": "MIT",
+    "devDependencies": {
+        "husky": "8.0.3",
+        "prettier": "3.0.3"
+    },
+    "dependencies": {
+        "node-fetch": "3.3.2"
+    }
+}
