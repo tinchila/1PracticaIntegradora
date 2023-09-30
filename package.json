@@ -14,6 +14,8 @@
     "author": "Sanders Gutiérrez <ing.sanders@gmail.com> (https://sandersgutierrez.github.io/)",
     "license": "MIT",
     "devDependencies": {
+        "@commitlint/cli": "17.7.2",
+        "@commitlint/config-conventional": "17.7.0",
         "eslint": "8.50.0",
         "husky": "8.0.3",
         "lint-staged": "14.0.1",
