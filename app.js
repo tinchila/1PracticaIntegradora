@@ -1,5 +1,3 @@
 'use strict'
 
-const logger = msg => console.log(new Date(), msg)
-
-logger('Hello World!')
+console.log(1_000_000)
