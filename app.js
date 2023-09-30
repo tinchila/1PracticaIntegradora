@@ -1,5 +1,5 @@
 'use strict'
 
-const logger = (msg) => console.log(msg)
+const logger = (msg) => console.log(new Date(), msg)
 
 logger('Hello World!')
