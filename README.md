@@ -2,11 +2,11 @@
 
 ## :thought_balloon: What is it?
 
-This is a scaffolding for Node.js projects.
+This is scaffolding for Node.js projects.
 
 ## :checkered_flag: How to start?
 
--   Install Node.js 18, go to [NVM](https://github.com/nvm-sh/nvm#git-install) for install NVM.
+-   Install Node.js 18, go to [NVM](https://github.com/nvm-sh/nvm#git-install) for installation NVM.
 
 ```shell
 nvm install 18
