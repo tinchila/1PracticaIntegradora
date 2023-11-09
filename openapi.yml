@@ -1,0 +1,173 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: 'Products REST API'
+  description: |
+    Products API is a RESTful API based on the product taxonomy of Mercado Libre.
+    You will access hundreds of products which have basic information such as images,
+    price, category, description, and taxonomic information of the product.
+  termsOfService: TERMS_OF_SERVICE
+  license:
+    name: MIT
+    url: LICENSE
+  contact:
+    name: Dotto Martin
+    url: https://github.com/tinchila
+    email: tincho.dotto@gmail.com
+
+tags:
+  - name: Product
+    description: Everything about Product
+
+servers:
+  - url: http://{HOST}:{PORT}/{BASE_PATH}
+    variables:
+      HOST:
+        default: '127.0.0.1'
+      PORT:
+        default: '3000'
+      BASE_PATH:
+        default: api
+
+paths:
+  /product:
+    get:
+      tags:
+        - Product
+      summary: Get all products
+      responses:
+        200:
+          description: A JSON array of products
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Product'
+        404:
+          description: Return message when it's not possible to find products
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/ErrorMessage'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Product
+      summary: Create a product
+      responses:
+        201:
+          description: A new product has been created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /product/{productId}:
+    parameters:
+      - name: productId
+        description: The product corresponding to the provided 'productId'
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/Product'
+    put:
+      tags:
+        - Product
+      summary: Update a product
+      responses:
+        200:
+          description: The product corresponding to the provided 'productId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        404:
+          description: No product found for the provided 'productId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      tags:
+        - Product
+      summary: Remove a product
+      responses:
+        200:
+          description: The product corresponding to the provided 'productId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        404:
+          description: No product found for the provided 'productId'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    ProductId:
+      type: string
+      description: The unique identifier of a product
+    Product:
+      type: object
+      required:
+        - name
+        - photo
+        - price
+        - category
+        - description
+      properties:
+        id:
+          $ref: '#/components/schemas/ProductId'
+        name:
+          type: string
+        photo:
+          type: string
+        price:
+          type: number
+        category:
+          enum:
+            - Computers
+            - Phones
+            - Accessories
+        description:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: A human-readable error message

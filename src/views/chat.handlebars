@@ -1,0 +1,26 @@
+<!-- views/chat.handlebars -->
+
+<html>
+    <head>
+        <title>Chat</title>
+    </head>
+    <body>
+        <h1>Chat</h1>
+
+        <div id='chat-messages'>
+            {{#each messages}}
+                <div class='message'>
+                    <strong>{{user}}:</strong>
+                    {{message}}
+                </div>
+            {{/each}}
+        </div>
+
+        <input type='text' id='message-input' placeholder='Escribe un mensaje' />
+        <button id='send-message'>Enviar</button>
+
+        <script>
+            // JavaScript para manejar la interacción del chat (usar WebSocket, si es necesario)
+        </script>
+    </body>
+</html>
