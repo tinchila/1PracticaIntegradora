@@ -7,13 +7,13 @@ import { removeExtensionFilename } from '../utils/helpers.js'
 
 const router = Router()
 
-const PATH_ROUTES = dirname('${import.meta.url}').split('file://')[1]
+const PATH_ROUTES = dirname(`${import.meta.url}`).split('file://')[1]
 
 readdirSync(PATH_ROUTES).filter(filename => {
-    const routerFilename = removeExtensionFilename(filename)
+    let routerFilename = removeExtensionFilename(filename)
     if (routerFilename != 'index') {
-        import('./${routerFilename}.js').then(routerModule => {
-            router.use('/${routerFilename}', routerModule.router)
+        import(`./${routerFilename}.js`).then(routerModule => {
+            router.use(`/${routerFilename}`, routerModule.router)
         })
     }
 })

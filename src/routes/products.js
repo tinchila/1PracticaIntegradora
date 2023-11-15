@@ -1,12 +1,14 @@
 'use strict'
 
-import { Router } from 'express'
-import { getProducts, saveProduct } from '../controllers/ProductController'
+import express from 'express'
+import { getProducts, saveProduct } from '../controllers/ProductController.js'
 
-const router = Router()
+const router = express.Router()
 
+// GET
 router.get('/', getProducts)
 
+// POST
 router.post('/', saveProduct)
 
-export { router }
+export default router

@@ -11,8 +11,8 @@ import config from './config.js'
 const server = express()
 const swaggerDocument = YAML.load('./openapi.yml')
 
-server.engine('handlebars', exphbs(config.handlebars))
-server.set('view engine', 'handlebars')
+server.engine('handlebars', exphbs.create(config.handlebars).engine)
+server.set('view engine', process.cwd() + '/src/views')
 
 server.use(json())
 server.use(cors())
