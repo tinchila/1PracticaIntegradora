@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Tienda Online</title>
+        <!-- Cualquier referencia a estilos, scripts, etc. -->
+    </head>
+    <body>
+
+        <header>
+            <nav>
+                <ul>
+                    <li><a href='/'>Inicio</a></li>
+                    <li><a href='/productos'>Productos</a></li>
+                    {{#if user}}
+                        <li><a href='/logout'>Cerrar sesión</a></li>
+                    {{else}}
+                        <li><a href='/login'>Iniciar sesión</a></li>
+                        <li><a href='/registro'>Registrarse</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {{{body}}}
+        </main>
+
+        <footer>
+            footer
+        </footer>
+
+    </body>
+</html>

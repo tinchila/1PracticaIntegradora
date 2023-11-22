@@ -5,7 +5,7 @@ import config from './config.js'
 import connectToDatabase from './database.js'
 import { router as productsRouter } from './routes/products.js'
 import { router as viewsRouter } from './routes/viewsRoutes.js'
-import { router as cartsRouter } from './routes/carts.js'
+import { router as cartsRouter } from './routes/cart.js'
 
 connectToDatabase()
 

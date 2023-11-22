@@ -6,4 +6,4 @@ const router = express.Router()
 router.get('/products', getProductsView)
 router.get('/carts/:cid', getCartView)
 
-export default router
+export { router }

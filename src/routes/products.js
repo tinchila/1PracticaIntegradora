@@ -11,4 +11,4 @@ router.get('/', getProducts)
 // POST
 router.post('/', saveProduct)
 
-export default router
+export { router }

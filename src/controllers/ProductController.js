@@ -1,5 +1,6 @@
 import { Product } from '../dao/models/ProductModel.js'
 
+//Obtener un nuevo Producto
 export const getProducts = async (req, res) => {
     const { limit = 10, page = 1, sort, query } = req.query
     let filter = {}
@@ -48,5 +49,19 @@ export const getProducts = async (req, res) => {
         res.status(200).json(response)
     } catch (error) {
         res.status(500).json({ status: 'error', message: `Error: ${error.message}` })
+    }
+}
+
+// Guardar un nuevo producto
+export const saveProduct = async (req, res) => {
+    try {
+        const { name, price, category, description } = req.body
+
+        const newProduct = new Product({ name, price, category, description })
+        await newProduct.save()
+
+        res.status(201).json({ status: 'success', message: 'Producto guardado correctamente' })
+    } catch (error) {
+        res.status(500).json({ status: 'error', message: `Error al guardar el producto: ${error.message}` })
     }
 }

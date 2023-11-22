@@ -1,7 +1,7 @@
 'use strict'
 
 import { Product } from '../dao/models/ProductModel.js'
-import { Cart } from '../dao/models/CartModel.js'
+import Cart from '../dao/models/CartModel.js'
 
 export const getProductsView = async (req, res) => {
     try {
