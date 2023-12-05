@@ -14,8 +14,6 @@ const config = {
 config.handlebars = {
     extname: '.handlebars',
     defaultLayout: 'main',
-    layoutsDir: 'views/layouts',
-    partialsDir: 'views/partials',
 }
 
 export default config

@@ -1,5 +1,19 @@
-<form action='/login' method='POST'>
-    <input type='email' name='email' placeholder='Correo electrónico' required />
-    <input type='password' name='password' placeholder='Contraseña' required />
-    <button type='submit'>Iniciar sesión</button>
-</form>
+<div>
+    <h1>Login</h1>
+    <form id='loginForm'>
+        <label>Email</label>
+        <input name='email' />
+        <br />
+        <label>Contraseña</label>
+        <input type='password' name='password' />
+        <input type='submit' />
+    </form>
+    <p>¿No estás registrado? <a href='/register'>Regístrate aquí</a></p>
+
+    <p>¿Olvidaste tu contraseña? <a href='/restartPassword'>Restáurala aquí</a></p>
+</div>
+
+<div>
+    <a href='/api/sessions/github'><button> Autenticar con GitHub </button></a>
+</div>
+<script src='/js/login.js'></script>
